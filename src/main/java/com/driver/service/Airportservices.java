@@ -92,12 +92,20 @@ return ans;
 
     public String getAirportNameFromFlightId(Integer flightId) {
         List<Flight> list=airportResporitary.getFlightList();
-
+  City city=null;
             for(Flight flight: list){
                 if(flight.getFlightId()==flightId ){
-                    return flight.getFromCity().name();
+                   city=flight.getFromCity();
                 }
             }
+
+            if(city==null) return null;
+
+            List<Airport> airportList =airportResporitary.getAirportList();
+            for(Airport airport : airportList){
+                if(airport.getCity().equals(city)) return airport.getAirportName();
+            }
+
         return null;
     }
 

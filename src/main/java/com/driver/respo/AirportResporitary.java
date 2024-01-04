@@ -24,6 +24,11 @@ public class AirportResporitary {
           this.passengerList=new ArrayList<>();
           this.flightPassenger=new HashMap<>();
       }
+
+    public List<Airport> getAirportList() {
+        return airportList;
+    }
+
     public void addAirport(Airport airport) {
         airportList.add(airport);
     }
