@@ -23,7 +23,7 @@ public class Airportservices {
     }
 
     public String getLargestAirportName() {
-        List<Airport> list=airportResporitary.getLargestAirportName();
+        List<Airport> list=airportResporitary.getAirportList();
         String ans=null;
         int terminals=0;
 

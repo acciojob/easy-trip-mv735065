@@ -34,9 +34,6 @@ public class AirportResporitary {
     }
 
 
-    public List<Airport> getLargestAirportName() {
-          return airportList;
-    }
 
     public String addFlight(Flight flight) {
           flightList.add(flight);
@@ -61,6 +58,7 @@ public class AirportResporitary {
               List<Integer> list=new ArrayList<>();
               list.add(passengerId);
               flightPassenger.put(flightId,list);
+              return "SUCCESS";
 
           }
           else {
@@ -75,6 +73,8 @@ public class AirportResporitary {
 
               if(full){
                   list.add(passengerId);
+                  return "SUCCESS";
+
               }
               else {
                   return "FAILURE";
@@ -82,7 +82,7 @@ public class AirportResporitary {
 
 
           }
-        return "SUCCESS";
+//        return "SUCCESS";
     }
 
     private int checkFilghtCapacity(Integer flightId) {
@@ -124,7 +124,7 @@ public class AirportResporitary {
               if((flight.getFromCity().equals(airportName) || flight.getToCity().equals(airportName))){
                   if(flight.getFlightDate().compareTo (date)==0 ){
 //                      ans+=flightPassenger.getOrDefault(flight,0).size();
-                      if(flightPassenger.containsKey(flight))   ans+=flightPassenger.get(flight).size();
+                       ans+=flightPassenger.get(flight).size();
                   }
               }
           }
