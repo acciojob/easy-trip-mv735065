@@ -85,7 +85,9 @@ return ans;
         int count=0;
 
         for(Integer i: map.keySet()){
-           if( map.get(i).contains(passengerId)) count++;
+            List<Integer> list=map.get(i);
+            if(list.indexOf(passengerId)!=-1) count++;
+//           if( map.get(i).contains(passengerId)) count++;
         }
         return count;
     }

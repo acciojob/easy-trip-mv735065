@@ -69,9 +69,9 @@ public class AirportResporitary {
               if(list.contains(passengerId)) return "FAILURE";
 
               int capacity=checkFilghtCapacity(flightId);
-              boolean full=capacity<=list.size();
+              boolean full=capacity>=list.size();
 
-              if(full){
+              if(!full){
                   list.add(passengerId);
                   return "SUCCESS";
 
@@ -123,8 +123,8 @@ public class AirportResporitary {
           for(Flight flight: flightList){
               if((flight.getFromCity().equals(airportName) || flight.getToCity().equals(airportName))){
                   if(flight.getFlightDate().compareTo (date)==0 ){
-//                      ans+=flightPassenger.getOrDefault(flight,0).size();
-                       ans+=flightPassenger.get(flight).size();
+                      ans+=flightPassenger.getOrDefault(flight,new ArrayList<>()).size();
+//                       ans+=flightPassenger.get(flight).size();
                   }
               }
           }
